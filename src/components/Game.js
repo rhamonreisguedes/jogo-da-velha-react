@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Game.css";
 
 const Game = () => {
@@ -13,10 +13,81 @@ const Game = () => {
   const [h7, seth7] = useState("");
   const [h8, seth8] = useState("");
   const [h9, seth9] = useState("");
+  const [winCondition, setWinCondition] = useState("");
+  const [counter, setCounter] = useState(0);
+  const [haveWinner, setHavewinner] = useState('');
+  const [initialGame, seInitialGame] = useState('');
 
   const handlePlayer = () => {
     setPlayer(player * -1);
   };
+
+  const handleSetCounter = () => {
+    setCounter(counter + 1);
+  }
+
+  useEffect(() => {
+    if (
+      (h1 === "X" && h4 === "X" && h7 === "X") ||
+      (h1 === "O" && h4 === "O" && h7 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h2 === "X" && h5 === "X" && h8 === "X") ||
+      (h2 === "O" && h5 === "O" && h8 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h3 === "X" && h6 === "X" && h9 === "X") ||
+      (h3 === "O" && h6 === "O" && h9 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h1 === "X" && h2 === "X" && h3 === "X") ||
+      (h1 === "O" && h2 === "O" && h3 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h4 === "X" && h5 === "X" && h6 === "X") ||
+      (h4 === "O" && h5 === "O" && h6 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h7 === "X" && h8 === "X" && h9 === "X") ||
+      (h7 === "O" && h8 === "O" && h9 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h1 === "X" && h5 === "X" && h9 === "X") ||
+      (h1 === "O" && h5 === "O" && h9 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if (
+      (h3 === "X" && h5 === "X" && h7 === "X") ||
+      (h3 === "O" && h5 === "O" && h7 === "O")
+    ) {
+      console.log("Ganhou");
+      setHavewinner(true);
+    };
+    if(counter === 9){
+      console.log('Game over')
+    }
+  }, [h1, h2, h3, h4, h5, h6, h7, h8, h9, counter]);
+
 
   const handleH1 = () => {
     if (h1 === "") {
@@ -27,6 +98,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH2 = () => {
@@ -38,6 +110,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH3 = () => {
@@ -49,6 +122,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH4 = () => {
@@ -60,6 +134,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH5 = () => {
@@ -71,6 +146,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH6 = () => {
@@ -82,6 +158,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH7 = () => {
@@ -93,6 +170,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH8 = () => {
@@ -104,6 +182,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   const handleH9 = () => {
@@ -115,6 +194,7 @@ const Game = () => {
       }
     }
     handlePlayer();
+    handleSetCounter();
   };
 
   return (
@@ -122,7 +202,7 @@ const Game = () => {
       <h1>Jogo da Velha</h1>
       <div className="row">
         <button className="btn-game" type="submit" onClick={handleH1}>
-          <span >{h1}</span>
+          <span>{h1}</span>
         </button>
         <button className="btn-game" type="submit" onClick={handleH2}>
           {h2}
