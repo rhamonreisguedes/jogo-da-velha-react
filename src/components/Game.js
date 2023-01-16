@@ -200,37 +200,76 @@ const Game = () => {
     <div>
       <h1>Jogo da Velha</h1>
       <div className="row">
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH1}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH1}
+        >
           <span>{h1}</span>
         </button>
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH2}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH2}
+        >
           {h2}
         </button>
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH3}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH3}
+        >
           {h3}
         </button>
       </div>
       <div className="row">
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH4}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH4}
+        >
           {h4}
         </button>
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH5}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH5}
+        >
           {h5}
         </button>
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH6}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH6}
+        >
           {h6}
         </button>
       </div>
       <div className="row">
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH7}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH7}
+        >
           {h7}
         </button>
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH8}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH8}
+        >
           {h8}
         </button>
-        <button className="btn-game" type="submit" onClick={haveWinner ? '' :handleH9}>
+        <button
+          className="btn-game"
+          type="submit"
+          onClick={haveWinner ? "" : handleH9}
+        >
           {h9}
         </button>
+        {haveWinner && (
+          <h2>O ganhador foi o jogador: {player > 0 ? "O" : "X"}</h2>
+        )}
       </div>
     </div>
   );
