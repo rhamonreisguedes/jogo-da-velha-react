@@ -11,3 +11,17 @@
     text-align: center;
 }
 
+.btn-bottom{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-restart{
+    background-color: 	#0F9D58;
+    padding: 10px;
+    border-radius: 5px;
+    border: transparent;
+    margin-top: 10px;
+    font-size: 1rem;
+}
+

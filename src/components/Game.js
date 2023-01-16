@@ -3,7 +3,6 @@ import "./Game.css";
 
 const Game = () => {
   const [player, setPlayer] = useState(1);
-  const [move, setMove] = useState(null);
   const [h1, seth1] = useState("");
   const [h2, seth2] = useState("");
   const [h3, seth3] = useState("");
@@ -13,10 +12,9 @@ const Game = () => {
   const [h7, seth7] = useState("");
   const [h8, seth8] = useState("");
   const [h9, seth9] = useState("");
-  const [winCondition, setWinCondition] = useState("");
   const [counter, setCounter] = useState(0);
   const [haveWinner, setHavewinner] = useState(false);
-  const [initialGame, seInitialGame] = useState("");
+  const [haveTie, setHaveTie] = useState(false);
 
   const handlePlayer = () => {
     setPlayer(player * -1);
@@ -83,10 +81,10 @@ const Game = () => {
       console.log("Ganhou");
       setHavewinner(true);
     }
-    if (counter === 9 && haveWinner) {
-      console.log("Game over");
+    if (counter === 9 && !haveWinner) {
+      setHaveTie(true);
     }
-  }, [h1, h2, h3, h4, h5, h6, h7, h8, h9, counter]);
+  }, [h1, h2, h3, h4, h5, h6, h7, h8, h9, haveWinner, counter]);
 
   const handleH1 = () => {
     if (h1 === "") {
@@ -105,7 +103,7 @@ const Game = () => {
       if (player === 1) {
         seth2("X");
       } else {
-        seth3("O");
+        seth2("O");
       }
     }
     handlePlayer();
@@ -196,6 +194,22 @@ const Game = () => {
     handleSetCounter();
   };
 
+  const restart = () => {
+    setPlayer(1);
+    seth1("");
+    seth2("");
+    seth3("");
+    seth4("");
+    seth5("");
+    seth6("");
+    seth7("");
+    seth8("");
+    seth9("");
+    setCounter(0);
+    setHavewinner(false);
+    setHaveTie(false);
+  };
+
   return (
     <div>
       <h1>Jogo da Velha</h1>
@@ -270,6 +284,12 @@ const Game = () => {
         {haveWinner && (
           <h2>O ganhador foi o jogador: {player > 0 ? "O" : "X"}</h2>
         )}
+        {haveTie && !haveWinner && <h2>O jogo empatou!</h2>}
+      </div>
+      <div className="btn-bottom">
+        <button className="btn-restart" onClick={restart}>
+          Reiniciar
+        </button>
       </div>
     </div>
   );
